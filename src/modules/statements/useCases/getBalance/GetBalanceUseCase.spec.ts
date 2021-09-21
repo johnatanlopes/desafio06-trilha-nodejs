@@ -12,12 +12,7 @@ enum OperationType {
   WITHDRAW = 'withdraw',
 }
 
-interface IInsufficientFundError {
-  message: string;
-  statusCode: number;
-}
-
-describe('Create User', () => {
+describe('Get balance User', () => {
   beforeEach(() => {
     inMemoryUsersRepository = new InMemoryUsersRepository();
     inMemoryStatementsRepository = new InMemoryStatementsRepository();

@@ -4,10 +4,12 @@ import 'express-async-errors';
 import express from 'express';
 import cors from 'cors';
 
-import './database';
+import createConnection from './database';
 import './shared/container';
 import { router } from './routes';
 import { AppError } from './shared/errors/AppError';
+
+createConnection();
 
 const app = express();
 
@@ -23,6 +25,8 @@ app.use(
         message: err.message
       });
     }
+
+    console.log(err);
 
     return response.status(500).json({
       status: "error",
